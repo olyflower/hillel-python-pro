@@ -23,8 +23,7 @@ def cache(max_limit=64):
             result = f(*args, **kwargs)
 
             # створюємо словник з лічильником і контентом
-            deco._cache[cache_key] = {'counter': 0, 'content': result}
-            print(deco._cache)
+            deco._cache[cache_key] = {'counter': 1, 'content': result}
 
             # видаляємо якшо досягли ліміта
             if len(deco._cache) >= max_limit:
