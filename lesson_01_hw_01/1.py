@@ -48,6 +48,6 @@ def fetch_url(url, first_n=100):
 fetch_url('https://google.com')
 fetch_url('https://google.com')
 fetch_url('https://google.com')
-# fetch_url('https://google.com')
+fetch_url('https://google.com')
 fetch_url('https://youtube.com')
 fetch_url('https://youtube.com')
