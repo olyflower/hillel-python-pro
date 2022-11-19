@@ -29,6 +29,7 @@ def measure_memory(f):
 
 @measure_memory
 def add(a, b):
+    print('Hello')
     res = a + b
     return res
 
