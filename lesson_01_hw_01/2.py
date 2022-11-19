@@ -1,16 +1,7 @@
 """2. Створити декоратор для заміру пам'яті."""
 
-import os
 import psutil
 import functools
-
-
-def process_memory():
-    """Функція для отримання інформації про пам’ять процесу.
-    """
-    process = psutil.Process(os.getpid())
-    mem_info = process.memory_info()
-    return mem_info.rss
 
 
 def measure_memory(f):
@@ -18,11 +9,11 @@ def measure_memory(f):
     """
     @functools.wraps(f)
     def wrapper(*args, **kwargs):
-        before = process_memory()
+        process = psutil.Process()
+        before = process.memory_info().rss
         result = f(*args, **kwargs)
-        after = process_memory()
-        print(before, after)
-        print(f'Used memory - {after - before}')
+        after = process.memory_info().rss
+        print(f'Used memory - {(after - before) / 1024} MB')
         return result
     return wrapper
 
