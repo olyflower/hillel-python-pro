@@ -15,7 +15,6 @@ def cache(max_limit=64):
             cache_key = (args, tuple(kwargs.items()))
 
             if cache_key in deco._cache:
-                # збільшуємо лічильник на одиницю
                 deco._cache[cache_key]['counter'] += 1
                 # переносимо в кінець списку
                 deco._cache.move_to_end(cache_key, last=True)
@@ -23,8 +22,7 @@ def cache(max_limit=64):
             result = f(*args, **kwargs)
 
             # створюємо словник з лічильником і контентом
-            deco._cache[cache_key] = {'counter': 0, 'content': result}
-            print(deco._cache)
+            deco._cache[cache_key] = {'counter': 1, 'content': result}
 
             # видаляємо якшо досягли ліміта
             if len(deco._cache) >= max_limit:
