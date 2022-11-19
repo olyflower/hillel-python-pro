@@ -15,7 +15,6 @@ def cache(max_limit=64):
             cache_key = (args, tuple(kwargs.items()))
 
             if cache_key in deco._cache:
-
                 deco._cache[cache_key]['counter'] += 1
                 # переносимо в кінець списку
                 deco._cache.move_to_end(cache_key, last=True)
