@@ -59,6 +59,8 @@ def calculate_average(path='hw.csv'):
 
 @app.route("/average_pandas")
 def calculate_average_pandas():
+    """Function to calculate average height and weight.
+    """
     df = pd.read_csv('hw.csv', index_col=0)
     return f'{df.mean(axis=0)}'
 
