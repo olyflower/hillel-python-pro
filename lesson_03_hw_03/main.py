@@ -4,9 +4,7 @@
 """
 
 import csv
-
 import pandas
-import pandas as pd
 import requests
 
 from faker import Faker
