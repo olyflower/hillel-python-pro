@@ -5,6 +5,10 @@ name = "pypi"
 
 [packages]
 flask = "*"
+pandas = "*"
+faker = "*"
+requests = "*"
+webargs = "*"
 
 [dev-packages]
 
