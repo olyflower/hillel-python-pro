@@ -9,6 +9,7 @@ pandas = "*"
 faker = "*"
 requests = "*"
 webargs = "*"
+httpx = "*"
 
 [dev-packages]
 
