@@ -1,23 +1,14 @@
 """Implement the following view functions.
 """
 
-import sqlite3
-
 from flask import Flask
-from webargs import fields, validate
+from webargs import fields
 from webargs.flaskparser import use_kwargs
+
+from lesson_04_hw_04.execute_query import execute_query
 from lesson_04_hw_04.format import format_records
 
 app = Flask(__name__)
-
-
-def execute_query(query, args=()):
-    with sqlite3.connect('chinook.db') as connection:
-        cursor = connection.cursor()
-        cursor.execute(query, args)
-        connection.commit()
-        records = cursor.fetchall()
-    return records
 
 
 @app.route("/order-price")
