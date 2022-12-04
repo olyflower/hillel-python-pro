@@ -6,7 +6,7 @@ import sqlite3
 from flask import Flask
 from webargs import fields, validate
 from webargs.flaskparser import use_kwargs
-
+from lesson_04_hw_04.format import format_records
 
 app = Flask(__name__)
 
@@ -18,10 +18,6 @@ def execute_query(query, args=()):
         connection.commit()
         records = cursor.fetchall()
     return records
-
-
-def format_records(records: list) -> str:
-    return '<br>'.join(str(record) for record in records)
 
 
 @app.route("/order-price")
@@ -52,8 +48,7 @@ def order_price(country):
 @use_kwargs(
     {
         'id': fields.Int(
-            load_default=None,
-            validate=[validate.Range(min=1, max=500)]
+            required=True
         )
     },
     location='query'
@@ -68,9 +63,11 @@ def get_all_info_about_track(id):
             " JOIN genres ON tracks.GenreId = genres.GenreId" \
             " JOIN media_types ON tracks.MediaTypeId = media_types.MediaTypeId" \
             f" GROUP BY tracks.TrackId HAVING tracks.TrackId=='{id}'"
-
     records = execute_query(query)
-    return records
+    if len(records) == 0:
+        return f'Track is not exist!'
+    else:
+        return records
 
 
 @app.route("/track-time")
