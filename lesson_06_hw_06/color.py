@@ -32,5 +32,5 @@ class Colorizer:
         print(Colorizer.colors['lightgrey'])
 
 
-with Colorizer('red') as print_color:
+with Colorizer('lightred') as print_color:
     print_color('Hello')
