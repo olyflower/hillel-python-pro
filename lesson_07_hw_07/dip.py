@@ -5,29 +5,39 @@ should depend on abstractions. On the other hand, it indicates that high-level c
 on low-level classes, since both should depend on abstractions.
 In summary, abstractions should depend on abstractions."""
 
-
-from abc import ABC, abstractmethod
-
-
-class Group(ABC):
-    @abstractmethod
-    def get_subject(self):
-        pass
+# Принцип інверсіі залежностей - верхні класи не повінні залежати від нижніх класів.
+# Клас Person має функцію get_status, вона незалежна від класів Teacher і Student.
+# get_status приймає параметром клас Teacher чи Student та прінтує результат.
 
 
-def subject_display(group: Group):
-    group.get_subject()
+class Person:
+
+    def get_status(self, note, **kwargs):
+        note(*kwargs).get_status()
 
 
-class Teacher(Group):
+class Teacher:
     def __init__(self, name, age, subject):
         self.name = name
         self.age = age
         self.subject = subject
 
-    def get_subject(self):
-        print(self.subject)
+    def get_status(self):
+        print(f'Teacher, subject - {self.subject}')
 
 
-teacher = Teacher('John', 21, 'Math')
-subject_display(teacher)
+class Student:
+    def __init__(self, name, age, course):
+        self.name = name
+        self.age = age
+        self.course = course
+
+    def get_status(self):
+        print(f'Student, course - {self.course}')
+
+
+person = Person()
+student = Student('Mike', 21, 4)
+teacher = Teacher('Helen', 35, 'Math')
+person.get_status(Student, name='Mike', age=21, course=4)
+person.get_status(Teacher, name='Helen', age=35, subject='Math')

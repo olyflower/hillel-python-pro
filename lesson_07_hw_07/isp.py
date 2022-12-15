@@ -3,6 +3,12 @@ The Interface Segregation Principle states that clients should not be forced to 
 they do not use and therefore suggests the creation of specific interfaces or classes for such clients.
 """
 
+# Краще мати багато маленьких інтерфейсів, ніж один великий.
+# Отже, маємо класи Talk, Salary, Grants.
+# Клас Teacher наслідується від класів Talk, Salary,
+# класс Student наслідується від класів Talk, Grant,
+# таким чином виконується принцип поділу інтерфейсів.
+
 
 class Talk:
     def __init__(self, name):

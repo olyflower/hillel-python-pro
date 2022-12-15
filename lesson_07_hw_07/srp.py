@@ -26,6 +26,9 @@ class Student:
     def get_name(self):
         return f'Name of the teacher: {self.name}'
 
+# Класи повинні мати одну відповідальність, тому створимо окремий класс UniversityDataBase, який буде відповідати
+# за збереження даних в базі даних.
+
 
 class UniversityDataBase:
     @staticmethod
