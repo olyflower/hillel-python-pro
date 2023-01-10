@@ -10,6 +10,7 @@ faker = "*"
 requests = "*"
 webargs = "*"
 httpx = "*"
+flake8 = "*"
 
 [dev-packages]
 
