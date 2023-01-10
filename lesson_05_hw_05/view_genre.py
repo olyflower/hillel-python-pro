@@ -32,7 +32,7 @@ def city_music(genre):
 
     records = execute_query(query)
     if len(records) == 0:
-        return f'There is no such genre'
+        return f'There is no such genre - {genre}'
     else:
         return format_records(records)
 

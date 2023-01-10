@@ -56,7 +56,7 @@ def get_all_info_about_track(id):
             f" GROUP BY tracks.TrackId HAVING tracks.TrackId=='{id}'"
     records = execute_query(query)
     if len(records) == 0:
-        return f'Track is not exist!'
+        return f'Track {id} is not exist!'
     else:
         return records
 
