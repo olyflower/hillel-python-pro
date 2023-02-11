@@ -13,5 +13,3 @@ def likes(names):
     elif len(names) > 3:
         count = len(names) - 2
         return f"{names[0]}, {names[1]} and {count} others like this"
-
-
