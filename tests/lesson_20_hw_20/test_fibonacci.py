@@ -20,7 +20,7 @@ class TestFibonacci(unittest.TestCase):
     def test_big_number_100(self):
         self.assertEqual(self.f(100), 354224848179261915075)
 
-    def test_big_number_300(self):
+    def test_big_number_400(self):
         self.assertEqual(self.f(400), 176023680645013966468226945392411250770384383304492191886725992896575345044216019675)
 
     def test_negative(self):
