@@ -11,6 +11,8 @@ requests = "*"
 webargs = "*"
 httpx = "*"
 flake8 = "*"
+numpy = "==1.24.2"
+multiprocess = "*"
 
 [dev-packages]
 
