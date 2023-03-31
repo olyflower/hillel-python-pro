@@ -13,6 +13,7 @@ httpx = "*"
 flake8 = "*"
 numpy = "==1.24.2"
 multiprocess = "*"
+aiohttp = "*"
 
 [dev-packages]
 
